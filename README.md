@@ -32,7 +32,7 @@ To use `CashierFunction` in your Elixir project, follow these steps:
 
 ## Usage
 
-    ```elixir
+    ```
     items = ["GR1", "SR1", "GR1", "CF1", "CF1"]
     total_price = CashierFunction.Checkout.total_price(items)
     IO.puts "Total price: £#{total_price}"

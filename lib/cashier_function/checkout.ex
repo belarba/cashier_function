@@ -14,6 +14,17 @@ defmodule CashierFunction.Checkout do
     |> Float.round(2)
   end
 
+  defp calculate_price("GR1", quantity) do
+    base_price = @prices["GR1"]
+    effective_quantity = if rem(quantity, 2) == 0 do
+      div(quantity, 2)
+    else
+      div(quantity, 2) + 1
+    end
+
+    effective_quantity * base_price
+  end
+
   defp calculate_price("SR1", quantity) when quantity >= 3 do
     4.50 * quantity
   end

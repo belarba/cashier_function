@@ -18,6 +18,10 @@ defmodule CashierFunction.Checkout do
     4.50 * quantity
   end
 
+  defp calculate_price("CF1", quantity) when quantity >= 3 do
+    (@prices["CF1"] * 2 / 3) * quantity
+  end
+
   defp calculate_price(code, quantity) do
     @prices[code] * quantity
   end

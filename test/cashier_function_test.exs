@@ -10,6 +10,10 @@ defmodule CashierFunctionTest do
     assert CashierFunction.Checkout.total_price(["GR1", "GR1"]) == 3.11
   end
 
+  test "Basket: GR1, GR1, GR1, GR1 - Total price expected: £3.11" do
+    assert CashierFunction.Checkout.total_price(["GR1", "GR1", "GR1", "GR1"]) == 6.22
+  end
+
   test "Basket: SR1, SR1, GR1, SR1 - Total price expected: £16.61" do
     assert CashierFunction.Checkout.total_price(["SR1", "SR1", "GR1", "SR1"]) == 16.61
   end

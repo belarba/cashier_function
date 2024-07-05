@@ -34,6 +34,11 @@ defmodule CashierFunction.Checkout do
   end
 
   defp calculate_price(code, quantity) do
-    @prices[code] * quantity
+    case Map.fetch(@prices, code) do
+      {:ok, price} ->
+        price * quantity
+      :error ->
+        raise ArgumentError, message: "Product code not found: #{code}"
+    end
   end
 end

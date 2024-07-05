@@ -21,4 +21,10 @@ defmodule CashierFunctionTest do
   test "Basket: GR1, CF1, SR1 - Total price expected: £19.34" do
     assert CashierFunction.Checkout.total_price(["GR1", "CF1", "SR1"]) == 19.34
   end
+
+  test "calculate_price throws error for unknown product code" do
+    assert_raise ArgumentError, fn ->
+      CashierFunction.Checkout.total_price(["XYZ"])
+    end
+  end
 end
